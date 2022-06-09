@@ -20,6 +20,10 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/',
+    redirect: '/home',
+  },
+  {
     path: '/home',
     component: () => import('@/views/Home'),
   },
@@ -34,8 +38,8 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode: 'history',
-  base: '/',
+  mode: 'hash', // 本地打包预览，这里改为hash
+  base: '',
   routes,
 })
 

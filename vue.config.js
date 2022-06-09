@@ -10,7 +10,7 @@
 const isProd = process.env.NODE_ENV === 'production'
 const webpackConfig = require('./config/webpack.config.js')
 module.exports = {
-  publicPath: '/',
+  publicPath: './',
   productionSourceMap: !isProd,
   devServer: {
     port: 80,
