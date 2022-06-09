@@ -1,0 +1,52 @@
+$themeColor: #007ff7;
+$red: #f14e44;
+$green: #00a77b;
+$blue: #2672ff;
+$grey: #6d778b;
+@mixin setFlexDisplay($direction: row, $justify: center, $align: center) {
+  display: flex;
+
+  align-items: $align;
+  flex-direction: $direction;
+  justify-content: $justify;
+}
+@mixin setEllipsis($lines: 1, $break: break-all) {
+  display: -webkit-box;
+  overflow: hidden;
+
+/*! autoprefixer: ignore next */
+
+  -webkit-box-orient: vertical;
+
+  text-overflow: ellipsis;
+  word-break: $break;
+
+  -webkit-line-clamp: $lines;
+}
+@mixin setFixed($pos: top, $offset: 0, $height: 0) {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 99;
+  @if $pos == top {
+    top: $offset;
+    @if $height == 0 {
+      bottom: 0;
+    } @else {
+      height: $height;
+    }
+  } @else if $pos == bottom {
+    bottom: $offset;
+    @if $height == 0 {
+      top: 0;
+    } @else {
+      height: $height;
+    }
+  }
+}
+
+@mixin setAbsolute($pos: top, $offset: 0, $height: 0) {
+  position: absolute;
+
+@include setFixed($pos, $offset, $height);
+}
