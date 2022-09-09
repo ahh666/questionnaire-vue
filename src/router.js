@@ -38,8 +38,8 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode: 'hash', // 本地打包预览，这里改为hash
-  base: '',
+  mode: 'history',
+  base: '/project/questionnaire',
   routes,
 })
 
